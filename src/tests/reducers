@@ -1,0 +1,44 @@
+// A reducer should return the new state after applying the action to the previous state, and that's the behavior tested below.
+
+import reducers from "../reducers/index";
+import constants from "../reducers/index";
+
+describe('form reducer', () => {
+    it('should render the initial state', () => {
+        expect(reducers(undefined, {})).toEqual([
+            { ok: false }
+
+        ])
+    })
+    it('should handle ADD', () => {
+        expect(
+            reducers([], {
+                type: constants.ADD,
+                ok: false
+
+
+            })
+        ).toEqual([
+            {
+                ok: false
+            }
+        ])
+        expect(
+            reducer(
+                [
+                    {
+                        ok: false
+                    }
+                ],
+                {
+                    type: constants.ADD,
+                    ok: false
+                }
+            ).toEqual([
+                {
+                    ok: false
+                }
+            ])
+        )
+    })
+})
